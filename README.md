@@ -10,11 +10,11 @@ git commit -m "message"
 
 git push -f origin master
 
-# IF CAN'T PUSH TO MASTER OR "Everything up-to-date" MESSAGE APPEAR, TRY THIS:**
+# IF CAN'T PUSH TO MASTER OR "Everything up-to-date" MESSAGE APPEAR, TRY THIS:
 
 git checkout master
 
-*to update the state to the latest remote master state*
+<to update the state to the latest remote master state>
 
 git pull               
 
@@ -26,7 +26,7 @@ git merge develop
 
 git push origin master 
 
-OR:
+## OR:
 
 #Make sure everything is pushed up to your remote repository (GitHub):
 
