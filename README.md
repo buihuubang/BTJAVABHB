@@ -32,7 +32,7 @@ git push origin master
 
 git checkout master
 
-//Overwrite "master" with "better_branch":
+//Overwrite "master" with "mybranch":
 
 git reset --hard mybranch
 
