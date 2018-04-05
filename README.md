@@ -2,9 +2,9 @@
 
 ## PUSH:
 
-$ git config --global user.email = "your email github"
+$ git config user.email = "your email github" (if you want github cache only 15 miniute: $ github config --global user.email  = "your email github")
 
-$ git config --global user.name = "your username github"
+$ git config user.name = "your username github"
 
 $ git add .
 
@@ -30,7 +30,7 @@ $ git push -f origin master
 
 ## Store your github account without entering your user and password in a prompt:
 
-$ git config credential.helper store
+$ git config credential.helper store (if you want github cache your password only 15 miniute: $ git config --global credential.helper cache)
 
 $ git push http://example.com/repo.git
 
