@@ -20,7 +20,7 @@ $ git commit -m "remove yourfile"
 
 $ git push -f origin master
 
-/*if you want to remove the file only from Git repository and not re move it from file system, use:*/
+*if you want to remove the file only from Git repository and not re move it from file system, use:*
 
 $ git rm --cached youfile
 
@@ -76,6 +76,6 @@ $ git reset --hard mybranch
 
 $ git push -f origin master
 
-/*From stackoverflow.com*/
+*From stackoverflow.com*
 
 ## END.
