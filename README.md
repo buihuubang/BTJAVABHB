@@ -1,5 +1,14 @@
 # PUSH GITHUB:
 
+## CREATE A NEW REPOSITORY:
+
+echo "# YOUR FILE NAME" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/yourrepo.git
+git push -u origin master
+
 ## PUSH:
 
 $ git config user.email = "your email github" (if you want github cache only 15 miniute: $ github config --global user.email  = "your email github")
@@ -32,7 +41,7 @@ $ git push -f origin master
 
 $ git config credential.helper store (if you want github cache your password only 15 miniute: $ git config --global credential.helper cache)
 
-$ git push http://example.com/repo.git
+$ git push https://github.com/yourrepo.git
 
 Username: type your username
 
