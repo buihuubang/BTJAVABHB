@@ -42,7 +42,7 @@ public class InforSV extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnThem = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        TextArea = new javax.swing.JTextArea();
         btnLensong = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,10 +118,10 @@ public class InforSV extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        TextArea.setEditable(false);
+        TextArea.setColumns(20);
+        TextArea.setRows(5);
+        jScrollPane1.setViewportView(TextArea);
 
         btnLensong.setText("LÊN HÌNH");
         btnLensong.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +184,7 @@ public class InforSV extends javax.swing.JFrame {
         for(int i = 0; i<= s.size(); i++){
             Xuat += (s.get(i).getGioiTinh() +s.get(i).getNamSinh() + s.get(i).getSTT()+"\t"+s.get(i).getName() + "\n");
         }
+        TextArea.setText(Xuat);
     }//GEN-LAST:event_btnLensongActionPerformed
 
     /**
@@ -197,6 +198,7 @@ public class InforSV extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea TextArea;
     private javax.swing.JButton btnLensong;
     private javax.swing.JButton btnThem;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -207,7 +209,6 @@ public class InforSV extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioFemale;
     private javax.swing.JRadioButton jRadioMan;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtDOB;
     private javax.swing.JTextField txtTen;
     // End of variables declaration//GEN-END:variables
