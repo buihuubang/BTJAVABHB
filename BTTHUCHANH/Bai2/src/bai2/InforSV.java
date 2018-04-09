@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package bai2;
-import bai2.DSSV;
+//import bai2.DSSV;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -17,7 +17,7 @@ public class InforSV extends javax.swing.JFrame {
      * Creates new form InforSV
      */
     int stt =1;
-    private ArrayList<DSSV> s = new ArrayList<DSSV>();
+    private final ArrayList<DSSV> sv = new ArrayList<>();
     public InforSV() {
         initComponents();
     }
@@ -169,11 +169,12 @@ public class InforSV extends javax.swing.JFrame {
         } else {
             gioiTinh = "Nu";
         }
-        DSSV sv = new DSSV();
-        sv.STT(stt);
-        sv.Name(name);
-        sv.GioiTinh(gioiTinh);
-        sv.NamSinh(namSinh);
+        DSSV s = new DSSV();
+        s.setSTT(stt);
+        s.setName(name);
+        s.setGioiTinh(gioiTinh);
+        s.setNamSinh(namSinh);
+        sv.add(s);
         stt++;
         JOptionPane.showMessageDialog(null, "Nhập thành công!","Sucess", JOptionPane.DEFAULT_OPTION);
     }//GEN-LAST:event_btnThemActionPerformed
@@ -181,8 +182,8 @@ public class InforSV extends javax.swing.JFrame {
     private void btnLensongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLensongActionPerformed
         // TODO add your handling code here:
         String Xuat = "";
-        for(int i = 0; i<= s.size(); i++){
-            Xuat += (s.get(i).getGioiTinh() +s.get(i).getNamSinh() + s.get(i).getSTT()+"\t"+s.get(i).getName() + "\n");
+        for(int i = 0; i< sv.size(); i++){
+            Xuat += (sv.get(i).getSTT()+"\t"+sv.get(i).getName() + sv.get(i).getGioiTinh() +"/t" +sv.get(i).getNamSinh()  + "\n");
         }
         TextArea.setText(Xuat);
     }//GEN-LAST:event_btnLensongActionPerformed

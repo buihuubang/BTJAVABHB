@@ -14,32 +14,34 @@ public class DSSV {
     private String name;
     private String gioiTinh;
     private String namSinh;
+    public void setSTT(int stt){
+        this.STT = stt;
+    }
     public int getSTT(){
-        return this.STT;
+        return STT;
     }
-    public String getName(){
-        return this.name;
-    }
-    public String getGioiTinh(){
-        return this.gioiTinh;
-    }
-    public String getNamSinh(){
-        return this.namSinh;
-    }
-    public void STT(int STT){
-        this.STT = STT;
-    }
-    public void GioiTinh(String gioiTinh){
+    public void setGioiTinh(String gioiTinh){
         this.gioiTinh = gioiTinh;
     }
-    public void Name(String name){
+    public String getGioiTinh(){
+        return gioiTinh;
+    }
+    public void setName(String name){
         this.name = name;
     }
-    public void NamSinh(String namSinh){
+    public String getName(){
+        return name;
+    }
+    public void setNamSinh(String namSinh){
         this.namSinh = namSinh;
     }
-
-    void getName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getNamSinh(){
+        return namSinh;
     }
+
+    /*void getName(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
+    
+    
 }
