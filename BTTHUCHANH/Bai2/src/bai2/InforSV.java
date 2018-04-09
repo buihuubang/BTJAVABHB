@@ -183,7 +183,7 @@ public class InforSV extends javax.swing.JFrame {
         // TODO add your handling code here:
         String Xuat = "";
         for(int i = 0; i< sv.size(); i++){
-            Xuat += (sv.get(i).getSTT()+"\t"+sv.get(i).getName() + sv.get(i).getGioiTinh() +"/t" +sv.get(i).getNamSinh()  + "\n");
+            Xuat += (sv.get(i).getSTT()+"\t"+sv.get(i).getName() + "\t" + sv.get(i).getGioiTinh() +"\t" +sv.get(i).getNamSinh()  + "\n");
         }
         TextArea.setText(Xuat);
     }//GEN-LAST:event_btnLensongActionPerformed
