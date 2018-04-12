@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bai69;
+package bai71;
 
 /**
  *
  * @author bang
  */
-public class Bai69 {
+public class Bai71 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new Tong().setVisible(true);
+        new HinhTron().setVisible(true);
     }
     
 }
