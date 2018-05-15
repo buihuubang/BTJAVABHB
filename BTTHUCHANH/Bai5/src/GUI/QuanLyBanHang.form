@@ -33,6 +33,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ch&#x1ea5;t li&#x1ec7;u"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuChatLieuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuNhanVien">
               <Properties>
