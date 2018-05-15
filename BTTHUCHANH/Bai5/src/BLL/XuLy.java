@@ -65,18 +65,14 @@ public class XuLy {
 //            ChatLieuArray().remove(selectedRow);
 //        }
 //    }
-    public static int DeleteChatLieu(String MaChatLieu, int n){
+    public static int DeleteChatLieu(String MaChatLieu){
         try {
-            if(n < -1){
-                return 0;
-            } else {
-                ChatLieuModel().removeRow(n);
-                ChatLieuArray().remove(n);
-                return ChatLieuDAL.Delete(MaChatLieu);
-            }
+            return ChatLieuDAL.Delete(MaChatLieu);
         } catch (Exception e) {
             System.out.println("Lỗi:" + e);
             return 0;
         }
     }
+    
+    //FORM NHÂN VIÊN
 }

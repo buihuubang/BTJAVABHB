@@ -145,7 +145,7 @@ public class DanhMucChatLieu extends javax.swing.JFrame {
         // TODO add your handling code here:
         int n = TableHienThi.getSelectedRow();
         String MaChatLieu = XuLy.ChatLieuModel().getValueAt(n, 0).toString();
-        XuLy.DeleteChatLieu(MaChatLieu,n);
+        XuLy.DeleteChatLieu(MaChatLieu);
         TableHienThi.setModel(XuLy.ChatLieuModel());
     }//GEN-LAST:event_btnXoaActionPerformed
 
