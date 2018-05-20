@@ -236,8 +236,8 @@ public class XuLy {
     
     //FORM HÓA ĐƠN BÁN
     
-    public static ArrayList<ChiTienHDBan> chiTienHDBanArray(){
-        return ChiTietHDBanDAL.getAll();
+    public static ArrayList<HDBan> HDBanArray(){
+        return HDBanDAL.getAll();
     }
     
     public static DefaultTableModel HDBanModel(){
@@ -295,9 +295,19 @@ public class XuLy {
         return HDBanDAL.Insert(MaHDBan, MaNhanVien, NgayBan, MaKhach, TongTien);
     }
     
+    public static int UpdateHDBan(String MaHDBan,String MaNhanVien, String NgayBan,String MaKhach,float TongTien){
+        return HDBanDAL.Update(MaHDBan, MaNhanVien, NgayBan, MaKhach, TongTien);
+    }
+    
+    public static int DeleteHDBan(String MaHDBan){
+        return HDBanDAL.Delete(MaHDBan);
+    }
+    
     public static int InsertChiTietHDBan(String MaHDBan, String MaHang, float SoLuong,float DonGia,float GiamGia,float ThanhTien){
         return ChiTietHDBanDAL.Insert(MaHDBan, MaHang, SoLuong, DonGia, GiamGia, ThanhTien);
     }
+    
+    
     
     
     

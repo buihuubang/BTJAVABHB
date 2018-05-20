@@ -8,6 +8,7 @@ package GUI;
 import BLL.XuLy;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,16 +23,7 @@ public class HoaDonBan extends javax.swing.JFrame {
     public HoaDonBan() {
         initComponents();
         TbleMatHang.setModel(model);
-        for(int i = 0; i < XuLy.NhanVienArray().size();i++){
-            cbMaNhanVien.addItem(XuLy.NhanVienArray().get(i).getMaNhanVien());
-        }
-        for(int j = 0; j < XuLy.HangArray().size(); j++){
-            cbMaHang.addItem(XuLy.HangArray().get(j).getMaHang());
-        }
-        for(int k = 0; k < XuLy.HangArray().size(); k++){
-            cbMaKhachHang.addItem(XuLy.KhachArray().get(k).getMaKhach());
-        }
-        
+        ThemItemCBBOX();
     }
     
     DefaultTableModel model = XuLy.HDBanModel();
@@ -240,9 +232,10 @@ public class HoaDonBan extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TbleMatHang.setCellSelectionEnabled(true);
         TbleMatHang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TbleMatHangMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TbleMatHangMousePressed(evt);
             }
         });
         jScrollPane1.setViewportView(TbleMatHang);
@@ -255,8 +248,18 @@ public class HoaDonBan extends javax.swing.JFrame {
         });
 
         btnSuaHoaDon.setText("SỬA HÓA ĐƠN");
+        btnSuaHoaDon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaHoaDonActionPerformed(evt);
+            }
+        });
 
         btnXoaHoaDon.setText("XÓA HÓA ĐƠN");
+        btnXoaHoaDon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaHoaDonActionPerformed(evt);
+            }
+        });
 
         btnHuyHoaDon.setText("ĐÓNG");
         btnHuyHoaDon.addActionListener(new java.awt.event.ActionListener() {
@@ -413,15 +416,30 @@ public class HoaDonBan extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TbleMatHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbleMatHangMouseClicked
-        // TODO add your handling code here:
-        if(evt.getClickCount() == 2){
-            
-        } else {
-            
+    
+    private void ThemItemCBBOX(){
+        //THÊM ITEM CHO COMBOBOX
+        for(int i = 0; i < XuLy.NhanVienArray().size();i++){
+            cbMaNhanVien.addItem(XuLy.NhanVienArray().get(i).getMaNhanVien());
         }
-    }//GEN-LAST:event_TbleMatHangMouseClicked
-
+        for(int j = 0; j < XuLy.HangArray().size(); j++){
+            cbMaHang.addItem(XuLy.HangArray().get(j).getMaHang());
+        }
+        for(int k = 0; k < XuLy.KhachArray().size(); k++){
+            cbMaKhachHang.addItem(XuLy.KhachArray().get(k).getMaKhach());
+        }
+        for(int f = 0; f < XuLy.HDBanArray().size(); f++){
+            cbMaHoaDon.addItem(XuLy.HDBanArray().get(f).getMaHDBan());
+        }
+    }
+    
+//    private void XoaItemCBBOX(){
+//        cbMaNhanVien.removeAllItems();
+//        cbMaHang.removeAllItems();
+//        cbMaKhachHang.removeAllItems();
+//        cbMaHoaDon.removeAllItems();
+//    }
+    
     private void btnHuyHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyHoaDonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
@@ -493,6 +511,43 @@ public class HoaDonBan extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Lưu thành công","THÔNG BÁO", JOptionPane.OK_OPTION);
         }
     }//GEN-LAST:event_btnThemHoaDonActionPerformed
+
+    private void btnSuaHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaHoaDonActionPerformed
+        // TODO add your handling code here:
+        String MaHDBan = txtMaHoaDon.getText();
+        String MaNhanVien = cbMaNhanVien.getSelectedItem().toString();
+        String NgayBan = txtNgayBan.getText();
+        String MaKhachHang = cbMaKhachHang.getSelectedItem().toString();
+        Float TongTien = Float.parseFloat(txtTongTien.getText());
+        int kq = XuLy.UpdateHDBan(MaHDBan, MaNhanVien, NgayBan, MaKhachHang,TongTien);
+        if(kq == 0){
+            JOptionPane.showMessageDialog(rootPane, "Sửa hóa đơn thất bại!","ERROR",JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Sửa hóa đơn thành công","THÔNG BÁO", JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_btnSuaHoaDonActionPerformed
+
+    private void btnXoaHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaHoaDonActionPerformed
+        // TODO add your handling code here:
+        int kq = XuLy.DeleteHDBan(txtMaHoaDon.getText());
+        if(kq == 0){
+            JOptionPane.showMessageDialog(rootPane, "Xóa hóa đơn thất bại!","ERROR",JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Xóa hóa đơn thành công","THÔNG BÁO", JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_btnXoaHoaDonActionPerformed
+
+    private void TbleMatHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbleMatHangMousePressed
+        // TODO add your handling code here:
+        if(evt.getClickCount() == 2){
+            int n = TbleMatHang.getSelectedRow();
+            model.removeRow(n);
+            TbleMatHang.setModel(model);
+            Float Tong = Float.parseFloat(txtTongTien.getText());
+            Tong -= Float.parseFloat(model.getValueAt(n, 5).toString());
+            txtTongTien.setText(String.valueOf(Tong));
+        } 
+    }//GEN-LAST:event_TbleMatHangMousePressed
 
     /**
      * @param args the command line arguments
