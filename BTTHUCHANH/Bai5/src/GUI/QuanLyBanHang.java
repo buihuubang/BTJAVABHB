@@ -76,12 +76,27 @@ public class QuanLyBanHang extends javax.swing.JFrame {
         mnuDanhMuc.add(mnuChatLieu);
 
         mnuNhanVien.setText("Nhân viên");
+        mnuNhanVien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuNhanVienActionPerformed(evt);
+            }
+        });
         mnuDanhMuc.add(mnuNhanVien);
 
         mnuKhachHang.setText("Khách hàng");
+        mnuKhachHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuKhachHangActionPerformed(evt);
+            }
+        });
         mnuDanhMuc.add(mnuKhachHang);
 
         mnuHangHoa.setText("Hàng hóa");
+        mnuHangHoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuHangHoaActionPerformed(evt);
+            }
+        });
         mnuDanhMuc.add(mnuHangHoa);
 
         jMenuBar1.add(mnuDanhMuc);
@@ -89,6 +104,11 @@ public class QuanLyBanHang extends javax.swing.JFrame {
         mnuHoaDon.setText("Hóa đơn");
 
         mnuHoaDonBan.setText("Hóa Đơn Bán");
+        mnuHoaDonBan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuHoaDonBanActionPerformed(evt);
+            }
+        });
         mnuHoaDon.add(mnuHoaDonBan);
 
         jMenuBar1.add(mnuHoaDon);
@@ -140,6 +160,7 @@ public class QuanLyBanHang extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuExitActionPerformed
@@ -154,6 +175,34 @@ public class QuanLyBanHang extends javax.swing.JFrame {
         dispose();
         new DanhMucChatLieu().setVisible(true);
     }//GEN-LAST:event_mnuChatLieuActionPerformed
+
+    private void mnuNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNhanVienActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        new DanhMucNhanVien().setVisible(true);
+    }//GEN-LAST:event_mnuNhanVienActionPerformed
+
+    private void mnuHangHoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuHangHoaActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        new DanhMucHangHoa().setVisible(true);
+    }//GEN-LAST:event_mnuHangHoaActionPerformed
+
+    private void mnuKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuKhachHangActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        new DanhMucKhachHang().setVisible(true);
+    }//GEN-LAST:event_mnuKhachHangActionPerformed
+
+    private void mnuHoaDonBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuHoaDonBanActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        new HoaDonBan().setVisible(true);
+    }//GEN-LAST:event_mnuHoaDonBanActionPerformed
 
     /**
      * @param args the command line arguments
