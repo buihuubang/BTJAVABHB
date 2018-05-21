@@ -156,6 +156,8 @@ public class TimKiemHoaDon extends javax.swing.JFrame {
         ArrayList<DTO.HDBan> xuly =  XuLy.FindHD(txtMaHoaDon.getText(), txtMaNhanVien.getText(), txtMaKhachHang.getText());
         
         try {
+            model.getDataVector().removeAllElements();
+            TbleTimHoaDon.setModel(model);
             for(int i = 0 ; i <xuly.size();i++){
                 Vector<String> h = new Vector<>();
                 h.add(xuly.get(i).getMaHDBan());
