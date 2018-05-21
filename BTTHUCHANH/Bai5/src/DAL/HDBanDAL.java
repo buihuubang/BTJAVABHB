@@ -49,7 +49,7 @@ public class HDBanDAL {
         if(con != null){
             try{
                 Statement stmt = con.createStatement();
-                String sql = "select * from HDBan where MaHDBan = '"+ MaHDB +"' or MaNhanVien ='"+ MaNV +"' or MaKhach = '"+ MaKH +"' ";
+                String sql = "select * from HDBan where MaHDBan = '"+ MaHDB +"' or MaNhanVien ='"+ MaNV +"' or MaKhach = '"+ MaKH +"'";
                 ResultSet rs = stmt.executeQuery(sql);
                 ArrayList<HDBan> ds = new ArrayList<>();
                 while(true){

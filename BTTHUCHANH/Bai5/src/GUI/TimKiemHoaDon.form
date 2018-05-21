@@ -144,6 +144,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="T&#xcc;M L&#x1ea0;I"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimLaiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDong">
       <Properties>

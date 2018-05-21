@@ -116,6 +116,11 @@ public class QuanLyBanHang extends javax.swing.JFrame {
         mnuTimKiem.setText("Tìm kiếm");
 
         mnuTimHoaDon.setText("Tìm hóa đơn");
+        mnuTimHoaDon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuTimHoaDonActionPerformed(evt);
+            }
+        });
         mnuTimKiem.add(mnuTimHoaDon);
 
         mnuTimHang.setText("Tìm hàng");
@@ -203,6 +208,13 @@ public class QuanLyBanHang extends javax.swing.JFrame {
         dispose();
         new HoaDonBan().setVisible(true);
     }//GEN-LAST:event_mnuHoaDonBanActionPerformed
+
+    private void mnuTimHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTimHoaDonActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        new TimKiemHoaDon().setVisible(true);
+    }//GEN-LAST:event_mnuTimHoaDonActionPerformed
 
     /**
      * @param args the command line arguments

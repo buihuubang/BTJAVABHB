@@ -78,6 +78,11 @@ public class TimKiemHoaDon extends javax.swing.JFrame {
         });
 
         btnTimLai.setText("TÌM LẠI");
+        btnTimLai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimLaiActionPerformed(evt);
+            }
+        });
 
         btnDong.setText("ĐÓNG");
         btnDong.addActionListener(new java.awt.event.ActionListener() {
@@ -172,6 +177,14 @@ public class TimKiemHoaDon extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Lỗi:" +e);
         }
     }//GEN-LAST:event_btnTimActionPerformed
+
+    private void btnTimLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimLaiActionPerformed
+        // TODO add your handling code here:
+        txtMaHoaDon.setText("");
+        txtMaKhachHang.setText("");
+        txtMaNhanVien.setText("");
+        model.getDataVector().removeAllElements();
+    }//GEN-LAST:event_btnTimLaiActionPerformed
 
     /**
      * @param args the command line arguments

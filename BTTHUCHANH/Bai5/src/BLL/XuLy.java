@@ -297,6 +297,8 @@ public class XuLy {
         return HDBanDAL.findHD(MaHoaDon, MaNhanVien, MaHoaDon);
     }
     
+    //FORM TÌM HÀNG
+    
     
     
     
