@@ -77,9 +77,6 @@ public class HoaDonBan extends javax.swing.JFrame {
         txtTongTien = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         btnThemHang = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        cbMaHoaDon = new javax.swing.JComboBox<>();
-        btnTimKiemMaHD = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("HÓA ĐƠN BÁN");
@@ -375,10 +372,6 @@ public class HoaDonBan extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jLabel15.setText("Mã hóa đơn");
-
-        btnTimKiemMaHD.setText("TÌM KIẾM");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -387,14 +380,7 @@ public class HoaDonBan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbMaHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnTimKiemMaHD)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -404,11 +390,6 @@ public class HoaDonBan extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(cbMaHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTimKiemMaHD))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -428,9 +409,9 @@ public class HoaDonBan extends javax.swing.JFrame {
         for(int k = 0; k < XuLy.KhachArray().size(); k++){
             cbMaKhachHang.addItem(XuLy.KhachArray().get(k).getMaKhach());
         }
-        for(int f = 0; f < XuLy.HDBanArray().size(); f++){
-            cbMaHoaDon.addItem(XuLy.HDBanArray().get(f).getMaHDBan());
-        }
+//        for(int f = 0; f < XuLy.HDBanArray().size(); f++){
+//            cbMaHoaDon.addItem(XuLy.HDBanArray().get(f).getMaHDBan());
+//        }
     }
     
 //    private void XoaItemCBBOX(){
@@ -540,12 +521,21 @@ public class HoaDonBan extends javax.swing.JFrame {
     private void TbleMatHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbleMatHangMousePressed
         // TODO add your handling code here:
         if(evt.getClickCount() == 2){
-            int n = TbleMatHang.getSelectedRow();
-            model.removeRow(n);
-            TbleMatHang.setModel(model);
-            Float Tong = Float.parseFloat(txtTongTien.getText());
-            Tong -= Float.parseFloat(model.getValueAt(n, 5).toString());
-            txtTongTien.setText(String.valueOf(Tong));
+            try{
+                int n = TbleMatHang.getSelectedRow();
+                model.removeRow(n);
+                TbleMatHang.setModel(model);
+//                Float Tong = Float.parseFloat(txtTongTien.getText());
+//                Tong -= Float.parseFloat(model.getValueAt(n, 5).toString());
+//                txtTongTien.setText(String.valueOf(Tong));
+                float Tong = 0;
+                for(int i = 0 ; i < TbleMatHang.getRowCount();i++){
+                    Tong += Float.parseFloat(model.getValueAt(i, 5).toString());
+                }
+                txtTongTien.setText(String.valueOf(Tong));
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(rootPane,"Lỗi:" + e);
+            }
         } 
     }//GEN-LAST:event_TbleMatHangMousePressed
 
@@ -590,10 +580,8 @@ public class HoaDonBan extends javax.swing.JFrame {
     private javax.swing.JButton btnSuaHoaDon;
     private javax.swing.JButton btnThemHang;
     private javax.swing.JButton btnThemHoaDon;
-    private javax.swing.JButton btnTimKiemMaHD;
     private javax.swing.JButton btnXoaHoaDon;
     private javax.swing.JComboBox<String> cbMaHang;
-    private javax.swing.JComboBox<String> cbMaHoaDon;
     private javax.swing.JComboBox<String> cbMaKhachHang;
     private javax.swing.JComboBox<String> cbMaNhanVien;
     private javax.swing.JLabel jLabel1;
@@ -602,7 +590,6 @@ public class HoaDonBan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;

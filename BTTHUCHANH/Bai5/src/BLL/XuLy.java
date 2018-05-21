@@ -42,21 +42,11 @@ public class XuLy {
     }
     
     public static int InsertChatLieu(String MaChatLieu,String TenChatLieu){
-        try{
-            return ChatLieuDAL.Insert(MaChatLieu, TenChatLieu);
-        } catch (Exception e){
-            System.out.println("Lỗi" + e);
-            return 0;
-        }
+        return ChatLieuDAL.Insert(MaChatLieu, TenChatLieu);
     }
     
     public static int UpdateChatLieu(String MaChatLieu, String TenChatLieu){
-        try{
-            return ChatLieuDAL.Update(MaChatLieu, TenChatLieu);
-        } catch (Exception e) {
-            System.out.println("Lỗi" + e);
-            return 0;
-        }
+        return ChatLieuDAL.Update(MaChatLieu, TenChatLieu);
     }
     
 //    public static int DeleteChatLieu(int selectedRow){
@@ -66,12 +56,7 @@ public class XuLy {
 //        }
 //    }
     public static int DeleteChatLieu(String MaChatLieu){
-        try {
-            return ChatLieuDAL.Delete(MaChatLieu);
-        } catch (Exception e) {
-            System.out.println("Lỗi:" + e);
-            return 0;
-        }
+        return ChatLieuDAL.Delete(MaChatLieu);
     }
     
     //FORM NHÂN VIÊN
@@ -107,30 +92,15 @@ public class XuLy {
     }
     
     public static int InsertNhanVien(String MaNhanVien, String TenNhanVien, String GioiTinh, String DiaChi, String DienThoai,String NgaySinh){
-        try{
-            return NhanVienDAL.Insert(MaNhanVien, TenNhanVien, GioiTinh, DiaChi, DienThoai, NgaySinh);
-        } catch (Exception e){
-            System.out.println("Lỗi" + e);
-            return 0;
-        }
+        return NhanVienDAL.Insert(MaNhanVien, TenNhanVien, GioiTinh, DiaChi, DienThoai, NgaySinh);
     }
     
     public static int UpdateNhanVien(String MaNhanVien, String TenNhanVien, String GioiTinh, String DiaChi, String DienThoai,String NgaySinh){
-        try{
-            return NhanVienDAL.Update(MaNhanVien, TenNhanVien, GioiTinh, DiaChi, DienThoai, NgaySinh);
-        } catch (Exception e) {
-            System.out.println("Lỗi" + e);
-            return 0;
-        }
+        return NhanVienDAL.Update(MaNhanVien, TenNhanVien, GioiTinh, DiaChi, DienThoai, NgaySinh);
     }
     
     public static int DeleteNhanVien(String MaNhanVien){
-        try {
-            return NhanVienDAL.Delete(MaNhanVien);
-        } catch (Exception e) {
-            System.out.println("Lỗi:" + e);
-            return 0;
-        }
+        return NhanVienDAL.Delete(MaNhanVien);
     }
     
     //FORM DANH MỤC HÀNG HÓA
@@ -305,6 +275,26 @@ public class XuLy {
     
     public static int InsertChiTietHDBan(String MaHDBan, String MaHang, float SoLuong,float DonGia,float GiamGia,float ThanhTien){
         return ChiTietHDBanDAL.Insert(MaHDBan, MaHang, SoLuong, DonGia, GiamGia, ThanhTien);
+    }
+    
+    //FORM TÌM HÓA ĐƠN
+    
+    public static DefaultTableModel TimHDBanModel(){
+        try{
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("Mã HĐB");
+            model.addColumn("Mã nhân viên");
+            model.addColumn("Ngày bán");
+            model.addColumn("Tên khách");
+            model.addColumn("Tổng tiền");
+            return model;
+        } catch (Exception e){
+            return null;
+        }
+    }
+    
+    public static ArrayList<HDBan> FindHD(String MaHoaDon,String MaNhanVien,String MaKhachHang){
+        return HDBanDAL.findHD(MaHoaDon, MaNhanVien, MaHoaDon);
     }
     
     

@@ -159,13 +159,13 @@ public class DanhMucChatLieu extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        XuLy.InsertChatLieu(String.valueOf(txtMaChatLieu.getText()), String.valueOf(txtTenChatLieu.getText()));
+        XuLy.InsertChatLieu(txtMaChatLieu.getText(), txtTenChatLieu.getText());
         TableHienThi.setModel(XuLy.ChatLieuModel());
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        XuLy.UpdateChatLieu(String.valueOf(txtMaChatLieu.getText()), String.valueOf(txtTenChatLieu.getText()));
+        XuLy.UpdateChatLieu(txtMaChatLieu.getText(),txtTenChatLieu.getText());
         TableHienThi.setModel(XuLy.ChatLieuModel());
     }//GEN-LAST:event_btnSuaActionPerformed
 

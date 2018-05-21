@@ -44,6 +44,33 @@ public class HDBanDAL {
         return null;
     }
     
+    public static ArrayList<HDBan> findHD( String MaHDB, String MaNV,String MaKH ){
+        Connection con = DBConnect.MoKetNoi();
+        if(con != null){
+            try{
+                Statement stmt = con.createStatement();
+                String sql = "select * from HDBan where MaHDBan = '"+ MaHDB +"' or MaNhanVien ='"+ MaNV +"' or MaKhach = '"+ MaKH +"' ";
+                ResultSet rs = stmt.executeQuery(sql);
+                ArrayList<HDBan> ds = new ArrayList<>();
+                while(true){
+                    if(!rs.next()) break;
+                    String MaHDBan = rs.getString("MaHDBan");
+                    String MaNhanVien = rs.getString("MaNhanVien");
+                    String NgayBan = rs.getString("NgayBan");
+                    String MaKhach = rs.getString("MaKhach");
+                    float TongTien = rs.getFloat("TongTien");
+                    HDBan hoaDon = new HDBan(MaHDBan, MaNhanVien, NgayBan, MaKhach, TongTien);
+                    ds.add(hoaDon);
+                }
+                con.close();
+                return ds;
+            }catch(SQLException ex){
+                return null;
+            }
+        }
+        return null;
+    }
+    
     public static int Insert(String MaHDBan, String MaNhanVien, String NgayBan,String MaKhach,float TongTien){
         Connection con = DBConnect.MoKetNoi();
         if(con != null){
