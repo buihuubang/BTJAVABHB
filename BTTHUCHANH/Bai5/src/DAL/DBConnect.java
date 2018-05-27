@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author buihu
  */
 public class DBConnect {
-    static String urlCon = "jdbc:sqlserver://DESKTOP-4729RC4\\SQLEXPRESS:1433;databaseName=QuanLyBanHang; user=sa; password=sa";
+    static String urlCon = "jdbc:sqlserver://DESKTOP-HGGVV02\\SQLEXPRESS:1433;databaseName=QuanLyBanHang; user=sa; password=sa";
     static Connection conn = null;
     public static Connection MoKetNoi() {
       try{

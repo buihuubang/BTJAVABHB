@@ -95,6 +95,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#xec;m h&#xe0;ng"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuTimHangActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuTimKhachHang">
               <Properties>

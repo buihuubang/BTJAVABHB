@@ -47,6 +47,36 @@ public class HangDAL {
         return null;
     }
     
+    public static ArrayList<Hang> findHang(String maHang, String tenHang){
+        Connection con = DBConnect.MoKetNoi();
+        if(con != null){
+            try{
+                Statement stmt = con.createStatement();
+                String sql = "select * from Hang where MaHang = '"+ maHang +"' or TenHang = '"+ tenHang +"'";
+                ResultSet rs = stmt.executeQuery(sql);
+                ArrayList<Hang> ds = new ArrayList<>();
+                while(true){
+                    if(!rs.next()) break;
+                    String MaHang = rs.getString("MaHang");
+                    String TenHang = rs.getString("TenHang");
+                    String MaChatLieu = rs.getString("MaChatLieu");
+                    float SoLuong = rs.getFloat("SoLuong");
+                    float DonGiaNhap = rs.getFloat("DonGiaNhap");
+                    float DonGiaBan = rs.getFloat("DonGiaBan");
+                    String Anh = rs.getString("Anh");
+                    String GhiChu = rs.getString("GhiChu");
+                    Hang mathang = new Hang(MaHang, TenHang, MaChatLieu, SoLuong, DonGiaNhap, DonGiaBan, Anh, GhiChu);
+                    ds.add(mathang);
+                }
+                con.close();
+                return ds;
+            }catch(SQLException ex){
+                return null;
+            }
+        }
+        return null;
+    }
+    
     public static String TenHang(String MaHang){
         Connection con = DBConnect.MoKetNoi();
         if(con != null){

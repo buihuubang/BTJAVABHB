@@ -299,7 +299,25 @@ public class XuLy {
     
     //FORM TÌM HÀNG
     
+    public static DefaultTableModel TimHangModel(){
+        try{
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("MaHang");
+            model.addColumn("TenHang");
+            model.addColumn("MaChatLieu");
+            model.addColumn("DonGiaNhap");
+            model.addColumn("DonGiaBan");
+            model.addColumn("Anh");
+            model.addColumn("GhiChu");
+            return model;
+        } catch (Exception e){
+            return null;
+        }
+    }
     
+    public static ArrayList<Hang> FindHang(String MaHang,String TenHang){
+        return HangDAL.findHang(MaHang, TenHang);
+    }
     
     
     

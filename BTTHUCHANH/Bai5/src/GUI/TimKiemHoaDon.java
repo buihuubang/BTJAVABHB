@@ -161,7 +161,9 @@ public class TimKiemHoaDon extends javax.swing.JFrame {
         ArrayList<DTO.HDBan> xuly =  XuLy.FindHD(txtMaHoaDon.getText(), txtMaNhanVien.getText(), txtMaKhachHang.getText());
         
         try {
+            //Xoá hết dữ liệu trong model
             model.getDataVector().removeAllElements();
+            //Bắt đầu xử lý
             TbleTimHoaDon.setModel(model);
             for(int i = 0 ; i <xuly.size();i++){
                 Vector<String> h = new Vector<>();
@@ -183,6 +185,7 @@ public class TimKiemHoaDon extends javax.swing.JFrame {
         txtMaHoaDon.setText("");
         txtMaKhachHang.setText("");
         txtMaNhanVien.setText("");
+        //xoá hết thành phần trong model
         model.getDataVector().removeAllElements();
     }//GEN-LAST:event_btnTimLaiActionPerformed
 
